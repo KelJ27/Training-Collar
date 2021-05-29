@@ -14,7 +14,6 @@
 
 #define RXD2 16
 #define TXD2 17
-#define TestLED 2
 
 BluetoothSerial SerialBT;
 char recievedString;
@@ -35,9 +34,8 @@ uint32_t DemoCounter=0;               // Just a counter to use in the serial mon
 
 void setup() {
   Serial.begin(115200);               // Not needed for sound, just to demo printing to the serial
-  SerialBT.begin("ESP32_KelJ");       // Bluetooth device name
+  SerialBT.begin("ESP32");       // Bluetooth device name
   Serial2.begin(9600, SERIAL_8N1, RXD2, TXD2);
-  pinMode(TestLED, OUTPUT);
 }
 
 
@@ -80,12 +78,6 @@ void sendSignals()
     }
     i = 0;
   }
-  else if(recievedString == lightOn)
-  {
-    digitalWrite(TestLED, HIGH);
-    delay(5000);
-    digitalWrite(TestLED, LOW);
-  }
   /*else if(recievedString == getLocation)
   {
     Serial.println(getLocation);
@@ -104,6 +96,7 @@ void printLocation()
 void playSound()
 {
   DacAudio.FillBuffer();                // Fill the sound buffer with data
-  if(ForceWithYou.Playing==false)       // if not playing,
+  if (ForceWithYou.Playing == false)    // if not playing,
     DacAudio.Play(&ForceWithYou);       // play it, this will cause it to repeat and repeat...
+  Serial.println(DemoCounter++);        // Showing that the sound will play as well as your code running here.
 }

@@ -20,21 +20,20 @@ char recievedString;
 const char sit = 'a';
 const char layDown = 'd';
 const char getLocation = 'l';
-const char lightOn = 'o';
 int i;
 
-XT_Wav_Class ForceWithYou(Force);     // create an object of type XT_Wav_Class that is used by 
-                                      // the dac audio class (below), passing wav data as parameter.
+XT_Wav_Class ForceWithYou(Force);               // create an object of type XT_Wav_Class that is used by 
+                                                // the dac audio class (below), passing wav data as parameter.
                                       
-XT_DAC_Audio_Class DacAudio(25,0);    // Create the main player class object. 
-                                      // Use GPIO 25, one of the 2 DAC pins and timer 0
+XT_DAC_Audio_Class DacAudio(25,0);              // Create the main player class object. 
+                                                // Use GPIO 25, one of the 2 DAC pins and timer 0
 
-uint32_t DemoCounter=0;               // Just a counter to use in the serial monitor
-                                      // not essential to playing the sound
+uint32_t DemoCounter=0;                         // Just a counter to use in the serial monitor
+                                                // not essential to playing the sound
 
 void setup() {
-  Serial.begin(115200);               // Not needed for sound, just to demo printing to the serial
-  SerialBT.begin("ESP32");       // Bluetooth device name
+  Serial.begin(115200);                         // Not needed for sound, just to demo printing to the serial
+  SerialBT.begin("ESP32_KJ");                   // Bluetooth device name
   Serial2.begin(9600, SERIAL_8N1, RXD2, TXD2);
 }
 
@@ -78,10 +77,10 @@ void sendSignals()
     }
     i = 0;
   }
-  /*else if(recievedString == getLocation)
+  else if(recievedString == getLocation)
   {
-    Serial.println(getLocation);
-  }*/
+    printLocation();
+  }
   
 }
 
@@ -90,7 +89,7 @@ void printLocation()
   if (SerialBT.available())
   {
     // Print to the app
-    SerialBT.print(Serial2.readString());
+    SerialBT.println(Serial2.readString());
   }
 }
 void playSound()

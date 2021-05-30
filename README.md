@@ -6,7 +6,13 @@ Devices Used
 - ESP32
 - Arduino
 - GPS Module NEO-6M
-- OLED
+- OLED Screen
 - Adafruit Mono 2.5W Class D Audio Amplifier
 - Mini Metal Speaker
 - 9V Battery
+
+Software Used
+- Arduino IDE
+- Visual Studio
+- Eagle
+- Fritzing

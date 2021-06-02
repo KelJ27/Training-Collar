@@ -11,6 +11,15 @@ Devices Used
 - Mini Metal Speaker
 - 9V Battery
 
+Other Components Used
+- Green LED
+- 10kohm resistor
+- 220ohm resistor
+- 10uf capacitor
+- 22pF capacitor
+- 5V voltage regulator
+- Switch
+
 Software Used
 - Arduino IDE
 - Visual Studio

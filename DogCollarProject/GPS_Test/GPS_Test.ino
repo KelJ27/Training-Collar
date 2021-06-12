@@ -36,7 +36,7 @@ TinyGPSPlus gps;
 int analogValue;
 const float vpp = 0.0043988269794721407624633431085;
 float batteryVoltage;
-float maxBatteryLife = 4.50;
+float maxBatteryLife = 5.00;
 
 void setup() {
   display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  //try 0x7A
@@ -94,35 +94,35 @@ void drawBattery(float batteryLife)
     display.drawBitmap(35, 8, battery_100, BATTERY_WIDTH,BATTERY_HEIGHT, WHITE);
     display.display();
   }
-  else if(batteryLife < 4.35 && batteryLife >= 4.20)
+  else if(batteryLife <= 4.35 && batteryLife >= 4.20)
   {
     display.clearDisplay();
     //display.drawPixel(15, 10, WHITE);
     display.drawBitmap(35, 8, battery_83, BATTERY_WIDTH,BATTERY_HEIGHT, WHITE);
     display.display(); 
   }
-  else if(batteryLife < 4.20 && batteryLife >= 4.05)
+  else if(batteryLife <= 4.20 && batteryLife >= 4.05)
   {
     display.clearDisplay();
     //display.drawPixel(15, 10, WHITE);
     display.drawBitmap(35, 8, battery_66, BATTERY_WIDTH,BATTERY_HEIGHT, WHITE);
     display.display();
   }
-  else if(batteryLife < 4.05 && batteryLife >= 3.90)
+  else if(batteryLife <= 4.05 && batteryLife >= 3.90)
   {
     display.clearDisplay();
     //display.drawPixel(15, 10, WHITE);
     display.drawBitmap(35, 8, battery_50, BATTERY_WIDTH,BATTERY_HEIGHT, WHITE);
     display.display();
   }
-  else if(batteryLife < 3.90 && batteryLife >= 3.75)
+  else if(batteryLife <= 3.90 && batteryLife >= 3.75)
   {
     display.clearDisplay();
     //display.drawPixel(15, 10, WHITE);
     display.drawBitmap(35, 8, battery_33, BATTERY_WIDTH,BATTERY_HEIGHT, WHITE);
     display.display();
   }
-  else if(batteryLife < 3.75 && batteryLife >= 3.60)
+  else if(batteryLife <= 3.75 && batteryLife >= 3.60)
   {
     display.clearDisplay();
     //display.drawPixel(15, 10, WHITE);
